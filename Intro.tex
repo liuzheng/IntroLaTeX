@@ -1,0 +1,153 @@
+\documentclass[slidestop,compress,mathserif,c]{beamer}
+\usepackage{fontspec,xunicode,xltxtra,beamerthemesplit}
+ \newfontfamily\times{Times New Roman}
+%以下是各种演示主题，定义幻灯片中的所有细节
+%\usetheme{default}
+%\usetheme{Berlin}%这个主题比较好
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+\usetheme{Berkeley}%这种演示主题比较好
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Marburg}
+%\usetheme{PaloAlto}%这种演示主题比较好
+%\usetheme{Antibes}
+%\usetheme{Darmstadt}
+%\usetheme{JuanLesPins}
+%\usetheme{Montpellier}
+%\usetheme{Singapore}
+%\usetheme{Boadilla}
+%\usetheme{Madrid}
+%\usetheme{AnnArbor}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Warsaw}
+
+%以下是各种外部主题，确定幻灯的显示式样
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme[height=0.1\textwidth,width=0.15\textwidth,hideothersubsections]{sidebar}
+%\useoutertheme{smoothbars}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+%\useoutertheme[height=0.5\textwidth]{sidebar}
+
+%以下是各种内部主题
+%\useinnertheme{default}
+%\useinnertheme{circles}
+%\useinnertheme{rectangles}
+\useinnertheme[shadow]{rounded}
+
+%以下是各种颜色主题
+%\usecolortheme{default}
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+\usecolortheme{seahorse}
+%\usecolortheme{sidebartab}
+%\usecolortheme{structure}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%以下是各种字体主题
+%\usefonttheme{default}
+%\usefonttheme[onlymath]{serif}
+%\usefonttheme{structurebold}
+%\usefonttheme{structureitalicserif}
+%\usefonttheme{structuresmallcapsserif}
+
+\setsansfont[Mapping=tex-text, BoldFont={微软雅黑 Bold}]{微软雅黑}
+
+% 中文环境自动换行
+\XeTeXlinebreaklocale "zh"  % 表示用中文的断行
+\XeTeXlinebreakskip = 0pt plus 1pt % 多一点调整的空间
+
+% 中文环境修正导航栏
+\makeatletter
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+\def\beamer@linkspace#1{
+  \begin{pgfpicture}{0pt}{-1.5pt}{#1}{5.5pt}
+    \pgfsetfillopacity{0}
+    \pgftext[x=0pt,y=-1.5pt]{.}
+    \pgftext[x=#1,y=5.5pt]{.}
+  \end{pgfpicture}}
+\makeatother
+
+% 超链接高亮显示
+\hypersetup{CJKbookmarks=true,
+colorlinks=true,
+citecolor=blue,
+linkcolor=blue,
+urlcolor=blue,
+bookmarksopen=true,
+breaklinks=true
+}
+
+% 幻灯片切换方式
+%\transblindshorizontal 	% 水平百叶窗
+%\transblindsvertical 		% 垂直百叶窗
+%\transboxin				% 盒状收缩
+%\transboxout				% 盒状展开
+%\transdissolve				% 溶解
+%\transglitter
+%\transsplithorizontalin	% 上下向中央收缩
+%\transsplitverticalin		% 垂直向中央收缩
+%\transsplithorizontalout	% 上下向中央展开
+%\transsplitverticalout		% 垂直向中央展开
+%\transwipe					% 从下抽出
+
+
+\title{Introtion LaTeX}
+\author{刘正}
+\date{\today}
+%\institute{同济大学电信学院}
+
+\logo{\color{blue!50}\scalebox{2}{{\includegraphics[height=0.8cm]{logo.jpg}\vspace{220pt}}}}
+
+% 设定frametitle居中
+\makeatletter 
+\long\def\beamer@@frametitle[#1]#2{% 
+  \beamer@ifempty{#2}{}{% 
+    \gdef\insertframetitle{\centering{#2\ifnum\beamer@autobreakcount>0\relax{}\space\usebeamertemplate*{frametitle continuation}\fi}}% 
+  \gdef\beamer@frametitle{#2}% 
+  \gdef\beamer@shortframetitle{#1}% 
+}% 
+} 
+\makeatother
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Introtion}
+\begin{frame}
+\frametitle{Overview}
+~ ~ ~ ~\TeX 是由 Donald E. Knuth 编写的计算机程序,用于文章和数学公
+式的排版。1977 年 Knuth 开始编写 \TeX 排版系统引擎的时候,是为了探索
+当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转
+那种排版质量下降的趋势,使自己写的书和文章免受其害。我们现在使用
+的 \TeX 系统是在 1982 年发布的,1989 年又略作改进,增进了对 8 字节字
+符和多语言的支持。\TeX 以具有优异的稳定性,可以在各种不同类型的计
+算机上运行,以及几乎没有错误而著称。\TeX 的版本号不断趋近于 $\pi$,现
+在为3.14159。
+
+~ ~ ~ ~\LaTeX 音译“拉泰赫，文本模式下写作LaTeX，是一种基于\TeX 的排版系统，由美国电脑学家莱斯利·兰伯特在20世纪80年代初期开发，利用这种格式，即使用户没有排版和程序设计的知识也可以充分发挥由TEX所提供的强大功能，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。
+
+
+\end{frame}
+
+
+
+
+\end{document}
